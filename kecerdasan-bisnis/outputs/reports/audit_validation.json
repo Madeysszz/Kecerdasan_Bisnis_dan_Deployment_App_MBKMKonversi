@@ -1,0 +1,14 @@
+{
+  "total_log_rows": 14261,
+  "raw_inputs_unchanged": true,
+  "timestamp_parse_failures_nonmissing": 0,
+  "status_count_reconciles": true,
+  "price_count_reconciles": true,
+  "daily_count_reconciles": true,
+  "versions": {
+    "python": "3.12.14",
+    "pandas": "3.1.0",
+    "numpy": "2.5.4",
+    "matplotlib": "3.11.2"
+  }
+}

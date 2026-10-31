@@ -1,0 +1,26 @@
+[
+  {
+    "source": "retail",
+    "path": "../dataset/Data_NortonTransaction - retail_transaction_log.csv",
+    "rows": 178,
+    "columns": 23,
+    "bytes": 86778,
+    "sha256": "866abc68d75d46f71d88c0c887df6c9e95dc1588f7d764ee13a126e66fd28258"
+  },
+  {
+    "source": "cobrandgen",
+    "path": "../dataset/Data_NortonTransaction - cobrandgen_transaction_log.csv",
+    "rows": 14083,
+    "columns": 28,
+    "bytes": 7443345,
+    "sha256": "b6fc06bb0bb089e631c55cf607fc304d963f530bc6f9d8a77c2244fc0571fcd7"
+  },
+  {
+    "source": "package",
+    "path": "../dataset/Data_NortonTransaction - package.csv",
+    "rows": 90,
+    "columns": 16,
+    "bytes": 25739,
+    "sha256": "9d221aa4e9bea8142e30f4ba96484dc198e6c8bd4e3c678aa0fb2ddeab0ce005"
+  }
+]

@@ -1,0 +1,8 @@
+channel,status,log_count
+cobrandgen,ACTIVE,9270
+cobrandgen,CANCEL,4806
+cobrandgen,FAILED,6
+cobrandgen,PENDING,1
+retail,ACTIVE,16
+retail,CANCEL,152
+retail,PENDING,10

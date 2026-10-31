@@ -1,0 +1,60 @@
+{
+  "feature_version": "2_time_of_day_seconds",
+  "scope": "data_integrity_not_anomaly_accuracy",
+  "checks": [
+    {
+      "check": "Hash sumber sama dengan manifest",
+      "observed": 3,
+      "expected": 3,
+      "passed": true
+    },
+    {
+      "check": "Jumlah log pada fact_log",
+      "observed": 14261,
+      "expected": 14261,
+      "passed": true
+    },
+    {
+      "check": "Log dengan delapan fitur finite",
+      "observed": 14261,
+      "expected": 14261,
+      "passed": true
+    },
+    {
+      "check": "Log dengan hasil skor unik",
+      "observed": 14261,
+      "expected": 14261,
+      "passed": true
+    },
+    {
+      "check": "Jumlah fact skor: log x tiga model",
+      "observed": 42783,
+      "expected": 42783,
+      "passed": true
+    },
+    {
+      "check": "Baseline run: dua kanal x tiga model",
+      "observed": 6,
+      "expected": 6,
+      "passed": true
+    },
+    {
+      "check": "Pelanggaran foreign key",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "Kegagalan parse timestamp nonmissing",
+      "observed": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "check": "Rekonsiliasi tabel status/harga/harian",
+      "observed": 3,
+      "expected": 3,
+      "passed": true
+    }
+  ]
+}

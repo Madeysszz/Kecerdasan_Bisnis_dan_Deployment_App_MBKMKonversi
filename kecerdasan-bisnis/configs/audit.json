@@ -1,0 +1,12 @@
+{
+  "sources": {
+    "retail": "../dataset/Data_NortonTransaction - retail_transaction_log.csv",
+    "cobrandgen": "../dataset/Data_NortonTransaction - cobrandgen_transaction_log.csv",
+    "package": "../dataset/Data_NortonTransaction - package.csv"
+  },
+  "output_dir": "outputs",
+  "missing_tokens": ["", "NULL", "null", "\\N"],
+  "display_timezone": "UTC",
+  "timestamp_format": "%d/%m/%Y %H:%M:%S%z",
+  "timestamp_artifact": ".-1f"
+}

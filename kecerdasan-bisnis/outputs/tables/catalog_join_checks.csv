@@ -1,0 +1,5 @@
+channel,log_column,package_column,nonmissing_log_rows,distinct_log_values,matched_rows_exact,target_unique_nonmissing,join_validated
+retail,pricing_id,id,178,12,0,True,False
+cobrandgen,pricing_id,id,14083,14,0,True,False
+cobrandgen,package_name,name,0,0,0,False,False
+cobrandgen,skup,spku,0,0,0,False,False

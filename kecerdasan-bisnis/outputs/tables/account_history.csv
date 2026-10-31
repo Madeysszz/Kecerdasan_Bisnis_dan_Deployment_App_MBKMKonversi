@@ -1,0 +1,3 @@
+source,accounts,single_log_accounts,accounts_at_least_3_logs,accounts_at_least_5_logs,logs_without_strictly_prior_account_timestamp,same_account_timestamp_groups,rows_in_same_account_timestamp_groups,consecutive_intervals,zero_intervals,median_gap_seconds,p95_gap_seconds,max_gap_seconds
+retail,41,34,4,3,42,13,26,137,13,69.0,10018.399999999987,17269259.0
+cobrandgen,9285,5182,443,37,9285,0,0,4798,0,2591880.0,2592527.15,4082575.0

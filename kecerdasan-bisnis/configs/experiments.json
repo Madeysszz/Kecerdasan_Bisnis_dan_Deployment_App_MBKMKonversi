@@ -1,0 +1,13 @@
+{
+  "isolation_forest": {
+    "n_estimators": [100, 300],
+    "max_samples": [256, 1024],
+    "seeds": [11, 42, 73]
+  },
+  "lof": {"n_neighbors": [10, 20, 50]},
+  "evaluation": {
+    "top_k": [10, 25, 50],
+    "threshold_percentages": [1, 2, 5, 10],
+    "sample_fraction": 0.8
+  }
+}

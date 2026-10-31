@@ -1,0 +1,270 @@
+{
+  "analysis_mode": "retrospective_in_sample",
+  "versions": {
+    "scikit-learn": "1.9.1",
+    "pyod": "3.6.7",
+    "scipy": "1.18.1",
+    "joblib": "1.6.0",
+    "numpy": "2.5.4",
+    "pandas": "3.1.0"
+  },
+  "configuration": {
+    "isolation_forest": {
+      "n_estimators": [
+        100,
+        300
+      ],
+      "max_samples": [
+        256,
+        1024
+      ],
+      "seeds": [
+        11,
+        42,
+        73
+      ]
+    },
+    "lof": {
+      "n_neighbors": [
+        10,
+        20,
+        50
+      ]
+    },
+    "evaluation": {
+      "top_k": [
+        10,
+        25,
+        50
+      ],
+      "threshold_percentages": [
+        1,
+        2,
+        5,
+        10
+      ],
+      "sample_fraction": 0.8
+    }
+  },
+  "channels": {
+    "cobrandgen": {
+      "rows": 14083,
+      "active_features": [
+        "log1p_amount",
+        "log1p_prior_account_count_24h",
+        "log1p_prior_account_count_7d",
+        "log1p_prior_reference_count",
+        "hour_sin",
+        "hour_cos",
+        "weekday_sin",
+        "weekday_cos"
+      ],
+      "constant_features": [],
+      "baseline_parameters": [
+        {
+          "channel": "cobrandgen",
+          "model": "if",
+          "variant": "trees=100;max_samples=256;seed=11",
+          "n_estimators": 100,
+          "max_samples": 256,
+          "seed": 11,
+          "baseline": true
+        },
+        {
+          "channel": "cobrandgen",
+          "model": "ecod",
+          "variant": "empirical_snapshot",
+          "baseline": true,
+          "threshold_used_for_priority": false
+        },
+        {
+          "channel": "cobrandgen",
+          "model": "lof",
+          "variant": "requested_k=10;n_neighbors=10;novelty=False",
+          "n_neighbors": 10,
+          "requested_n_neighbors": 10,
+          "adjustment_reason": "none",
+          "fit_warnings": "[]",
+          "baseline": true
+        }
+      ],
+      "experiment_count": 16,
+      "high_priority_count": 141,
+      "medium_priority_count": 564,
+      "sample_stability": "common_full_snapshot_reference; overlaps_training; not holdout performance",
+      "agreement_spearman_range": [
+        0.10123042192980827,
+        0.8308674400974874
+      ],
+      "parameter_stability": {
+        "if": {
+          "mean_spearman": 0.9700670480841602,
+          "min_spearman": 0.9505957490595818
+        },
+        "lof": {
+          "mean_spearman": 0.4052402440381919,
+          "min_spearman": 0.2644432246088116
+        }
+      },
+      "duplicate_vector_diagnostics": {
+        "distinct_vectors": 11514,
+        "max_identical_vectors": 7,
+        "duplicate_groups": 1815,
+        "rows_in_duplicate_groups": 4384,
+        "feature_columns": [
+          "log1p_amount",
+          "log1p_prior_account_count_24h",
+          "log1p_prior_account_count_7d",
+          "log1p_prior_reference_count",
+          "hour_sin",
+          "hour_cos",
+          "weekday_sin",
+          "weekday_cos"
+        ],
+        "handling": "retain_all_rows; no_jitter; no_deduplication"
+      },
+      "lof_suitability": {
+        "status": "fit_without_incorrect_results_warning",
+        "variants": [
+          {
+            "requested_n_neighbors": 10,
+            "effective_n_neighbors": 10,
+            "adjustment_reason": "none",
+            "warnings": []
+          },
+          {
+            "requested_n_neighbors": 20,
+            "effective_n_neighbors": 20,
+            "adjustment_reason": "none",
+            "warnings": []
+          },
+          {
+            "requested_n_neighbors": 50,
+            "effective_n_neighbors": 50,
+            "adjustment_reason": "none",
+            "warnings": []
+          }
+        ]
+      },
+      "recommendation_rationale": "IF rata-rata korelasi stabilitas 0.970; LOF rata-rata korelasi stabilitas 0.405. Korelasi antar model berada pada 0.101–0.831. Terdapat 11514 vektor fitur berbeda dari 14083 log; blok identik terbesar 7 baris. IF lebih konsisten secara rata-rata pada variasi yang diuji; cakupan variasi kedua algoritma berbeda sehingga ini bukan bukti model terbaik. Tinjau kasus yang disepakati maupun yang berbeda antar model; hasil ini belum mengukur ketepatan investigasi.",
+      "scaler": "RobustScaler fitted on the same retrospective channel snapshot"
+    },
+    "retail": {
+      "rows": 178,
+      "active_features": [
+        "log1p_amount",
+        "log1p_prior_account_count_24h",
+        "log1p_prior_account_count_7d",
+        "log1p_prior_reference_count",
+        "hour_sin",
+        "hour_cos",
+        "weekday_sin",
+        "weekday_cos"
+      ],
+      "constant_features": [],
+      "baseline_parameters": [
+        {
+          "channel": "retail",
+          "model": "if",
+          "variant": "trees=100;max_samples=178;seed=11",
+          "n_estimators": 100,
+          "max_samples": 178,
+          "seed": 11,
+          "baseline": true
+        },
+        {
+          "channel": "retail",
+          "model": "ecod",
+          "variant": "empirical_snapshot",
+          "baseline": true,
+          "threshold_used_for_priority": false
+        },
+        {
+          "channel": "retail",
+          "model": "lof",
+          "variant": "requested_k=10;n_neighbors=10;novelty=False",
+          "n_neighbors": 10,
+          "requested_n_neighbors": 10,
+          "adjustment_reason": "none",
+          "fit_warnings": "[]",
+          "baseline": true
+        }
+      ],
+      "experiment_count": 10,
+      "high_priority_count": 2,
+      "medium_priority_count": 7,
+      "sample_stability": "common_full_snapshot_reference; overlaps_training; not holdout performance",
+      "agreement_spearman_range": [
+        0.3469322942307433,
+        0.809989201151168
+      ],
+      "parameter_stability": {
+        "if": {
+          "mean_spearman": 0.9830797465728283,
+          "min_spearman": 0.9772851800428762
+        },
+        "lof": {
+          "mean_spearman": 0.5879810026818801,
+          "min_spearman": 0.39923503517755893
+        }
+      },
+      "duplicate_vector_diagnostics": {
+        "distinct_vectors": 164,
+        "max_identical_vectors": 2,
+        "duplicate_groups": 14,
+        "rows_in_duplicate_groups": 28,
+        "feature_columns": [
+          "log1p_amount",
+          "log1p_prior_account_count_24h",
+          "log1p_prior_account_count_7d",
+          "log1p_prior_reference_count",
+          "hour_sin",
+          "hour_cos",
+          "weekday_sin",
+          "weekday_cos"
+        ],
+        "handling": "retain_all_rows; no_jitter; no_deduplication"
+      },
+      "lof_suitability": {
+        "status": "fit_without_incorrect_results_warning",
+        "variants": [
+          {
+            "requested_n_neighbors": 10,
+            "effective_n_neighbors": 10,
+            "adjustment_reason": "none",
+            "warnings": []
+          },
+          {
+            "requested_n_neighbors": 20,
+            "effective_n_neighbors": 20,
+            "adjustment_reason": "none",
+            "warnings": []
+          },
+          {
+            "requested_n_neighbors": 50,
+            "effective_n_neighbors": 50,
+            "adjustment_reason": "none",
+            "warnings": []
+          }
+        ]
+      },
+      "recommendation_rationale": "IF rata-rata korelasi stabilitas 0.983; LOF rata-rata korelasi stabilitas 0.588. Korelasi antar model berada pada 0.347–0.810. Terdapat 164 vektor fitur berbeda dari 178 log; blok identik terbesar 2 baris. IF lebih konsisten secara rata-rata pada variasi yang diuji; cakupan variasi kedua algoritma berbeda sehingga ini bukan bukti model terbaik. Tinjau kasus yang disepakati maupun yang berbeda antar model; hasil ini belum mengukur ketepatan investigasi.",
+      "scaler": "RobustScaler fitted on the same retrospective channel snapshot"
+    }
+  },
+  "priority_policy": "Kapasitas awal: ceil(1% n) tinggi, berikutnya sampai ceil(5% n) sedang, sisanya rendah; bukan prevalensi.",
+  "tie_policy": "Persentil dan korelasi memakai average ranks; top-K/prioritas memakai log_key sebagai pemecah tie deterministik.",
+  "ecod_protocol": "decision_scores_ dari fit pada snapshot kanal; tidak ada batch holdout atau klaim generalisasi temporal.",
+  "temporal_evaluation": "not_performed; no ranking correlation across different time-period observation sets",
+  "iteration_note": "Pola waktu memakai fitur resolusi sumber; vektor identik dipertahankan, didiagnosis, dan ukuran tetangga LOF dijaga tanpa jitter atau deduplikasi.",
+  "limitation": "Tidak ada ground truth; agreement dan stabilitas tidak membuktikan kebenaran deteksi atau fraud.",
+  "agreement_spearman_range": [
+    0.10123042192980827,
+    0.8308674400974874
+  ],
+  "stability_spearman_range": [
+    0.2644432246088116,
+    0.991814153407489
+  ],
+  "recommendation": "Gunakan konsensus sebagai antrean tinjauan awal dan periksa perbedaan antar model. Rentang agreement/stabilitas terlampir hanya mengukur konsistensi snapshot; tidak cukup untuk memilih model terbaik atau menyimpulkan fraud. Retail dengan sedikit log dan konsentrasi akun tinggi memerlukan penafsiran eksploratif."
+}

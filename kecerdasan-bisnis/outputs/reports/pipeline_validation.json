@@ -1,0 +1,20 @@
+{
+  "analysis_mode": "retrospective_in_sample",
+  "log_rows": 14261,
+  "scored_rows": 14261,
+  "account_snapshots": 9326,
+  "input_files_unchanged": true,
+  "data_mart": "data\\processed\\norton_bi.db",
+  "feature_columns": [
+    "log1p_amount",
+    "log1p_prior_account_count_24h",
+    "log1p_prior_account_count_7d",
+    "log1p_prior_reference_count",
+    "hour_sin",
+    "hour_cos",
+    "weekday_sin",
+    "weekday_cos"
+  ],
+  "feature_version": "2_time_of_day_seconds",
+  "input_files_unchanged_after_modeling": true
+}

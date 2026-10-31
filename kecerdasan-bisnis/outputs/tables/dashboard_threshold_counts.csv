@@ -1,0 +1,9 @@
+channel,model,score_threshold,rows_at_or_above_threshold,high_priority_consensus_capacity,threshold_reference
+cobrandgen,if,0.99,141,141,within_channel_percentile
+cobrandgen,ecod,0.99,141,141,within_channel_percentile
+cobrandgen,lof,0.99,141,141,within_channel_percentile
+cobrandgen,consensus,0.99,10,141,mean_of_percentiles
+retail,if,0.99,2,2,within_channel_percentile
+retail,ecod,0.99,2,2,within_channel_percentile
+retail,lof,0.99,2,2,within_channel_percentile
+retail,consensus,0.99,0,2,mean_of_percentiles

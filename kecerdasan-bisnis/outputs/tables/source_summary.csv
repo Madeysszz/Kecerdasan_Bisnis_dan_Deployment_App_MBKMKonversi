@@ -1,0 +1,4 @@
+source,rows,columns,exact_duplicate_excess,duplicate_excess_without_row_keys
+retail,178,23,0,0
+cobrandgen,14083,28,0,0
+package,90,16,0,0

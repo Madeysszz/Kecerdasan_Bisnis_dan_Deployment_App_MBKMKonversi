@@ -1,0 +1,5 @@
+source,key,unique,repeated_groups,rows_in_repeated_groups,max_rows_per_key
+retail,transaction_id,51,6,133,64
+retail,customer_id,41,7,144,65
+cobrandgen,transaction_id,9763,3808,8128,9
+cobrandgen,customer_id,9285,4103,8901,11
