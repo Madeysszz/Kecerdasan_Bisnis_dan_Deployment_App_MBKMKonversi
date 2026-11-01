@@ -1,4 +1,4 @@
-# KecerdasanBisnis_TOG
+# Kecerdasan Bisnis & Deployment Aplikasi — Konversi MBKM
 
 Norton Intelligent Transaction Anomaly Detection untuk PT Triple One Global: audit data, fitur historis, tiga model unsupervised, mart analitik, dan dashboard BI. Analisis bersifat retrospektif pada snapshot log; prioritas investigasi tidak menyatakan fraud.
 
@@ -6,6 +6,8 @@ Dokumen utama adalah [Knowledge Hasil dan Pembahasan A–Z](kecerdasan-bisnis/do
 
 ## Isi repositori
 
+- `kecerdasan-bisnis/`: audit, analisis, pemodelan, data mart, hasil eksperimen, dan dokumentasi Kecerdasan Bisnis.
+- [DEPLOYMENT_KECERDASAN BISNIS](<DEPLOYMENT_KECERDASAN BISNIS/README.md>): aplikasi dashboard, dependensi runtime, Dockerfile, dan panduan deployment.
 - Kode pipeline, dashboard, konfigurasi eksperimen, dependensi, dan pengujian.
 - Notebook EDA dengan hasil agregat, knowledge, kamus fitur, arsitektur, serta ringkasan konversi mata kuliah.
 - Tabel hasil agregat, laporan yang tidak menampilkan kasus individual, metadata evaluasi, manifest sumber, dan gambar bukti.
@@ -23,12 +25,14 @@ source .venv/Scripts/activate
 python -m pip install -r requirements.txt
 python run_pipeline.py
 python build_knowledge_evidence.py
-python -m streamlit run dashboard/app.py --server.address 127.0.0.1 --server.port 8501 --server.headless true --browser.gatherUsageStats false
+python -m streamlit run "../DEPLOYMENT_KECERDASAN BISNIS/app.py" --server.address 127.0.0.1 --server.port 8501 --server.headless true --browser.gatherUsageStats false
 ```
 
 Buka alamat yang muncul di terminal. Tekan `Ctrl+C` pada terminal yang menjalankan server untuk menghentikannya; `deactivate` digunakan untuk keluar dari environment.
 
 Pipeline membangkitkan kembali artefak privat lokal. Hash pada [manifest sumber](kecerdasan-bisnis/outputs/reports/source_manifest.json) dapat dipakai untuk memastikan snapshot sama dengan laporan. Informasi instalasi notebook dan perintah PowerShell tersedia pada [panduan proyek BI](kecerdasan-bisnis/README.md).
+
+Dashboard membaca artefak analisis dari folder `kecerdasan-bisnis` meskipun kode aplikasinya berada di folder deployment. [Panduan deployment](<DEPLOYMENT_KECERDASAN BISNIS/README.md>) menjelaskan dependensi aplikasi, cara menjalankan dari root repository, serta build dan runtime Docker. Hosting online belum dilakukan.
 
 ## Pengujian
 

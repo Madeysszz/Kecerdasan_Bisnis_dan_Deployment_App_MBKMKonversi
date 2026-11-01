@@ -6,7 +6,7 @@ import plotly.express as px
 import streamlit as st
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[1] / "kecerdasan-bisnis"
 COLORS = {"retail": "#B3652A", "cobrandgen": "#225F86"}
 MODELS = {"Konsensus": "consensus_score", "Isolation Forest": "if_percentile",
           "ECOD": "ecod_percentile", "LOF": "lof_percentile"}
@@ -134,7 +134,7 @@ def main():
     log_path = ROOT / "data/processed/sanitized_logs.csv"
     score_path = ROOT / "outputs/tables/anomaly_scores.csv"
     if not log_path.exists() or not score_path.exists():
-        st.info("Hasil pipeline belum tersedia. Jalankan python run_pipeline.py dari folder kecerdasan-bisnis.")
+        st.info("Data dashboard belum tersedia. Siapkan artefak analitik sesuai panduan deployment.")
         st.stop()
     data = load_data(log_path.stat().st_mtime_ns, score_path.stat().st_mtime_ns)
     page = st.sidebar.radio("Halaman", ["Executive Overview", "Anomaly Monitoring", "Model Comparison", "Transaction Investigation"])

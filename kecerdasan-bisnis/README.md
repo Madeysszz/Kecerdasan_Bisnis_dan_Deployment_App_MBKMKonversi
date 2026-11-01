@@ -48,8 +48,10 @@ Untuk menghasilkan ulang empat gambar validasi tambahan dan ringkasan knowledge 
 
 ## Dashboard
 
+Implementasi dashboard dan konfigurasi deployment berada di [DEPLOYMENT_KECERDASAN BISNIS](<../DEPLOYMENT_KECERDASAN BISNIS/README.md>). Perintah berikut dijalankan dari folder `kecerdasan-bisnis`:
+
 ```powershell
-.\.venv\Scripts\python.exe -m streamlit run dashboard/app.py --server.address 127.0.0.1 --server.port 8501 --server.headless true --browser.gatherUsageStats false
+.\.venv\Scripts\python.exe -m streamlit run "../DEPLOYMENT_KECERDASAN BISNIS/app.py" --server.address 127.0.0.1 --server.port 8501 --server.headless true --browser.gatherUsageStats false
 ```
 
 Buka `http://localhost:8501`. Halaman meliputi Executive Overview, Anomaly Monitoring, Model Comparison, dan Transaction Investigation. Tersedia filter kanal, waktu UTC, status, model, serta ambang skor. Tabel evaluasi memakai seluruh snapshot kanal terpilih, sesuai keterangan pada halaman. Dashboard tidak menyediakan unggahan sumber mentah atau unduhan kredensial/data rahasia.

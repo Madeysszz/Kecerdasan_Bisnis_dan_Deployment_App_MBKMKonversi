@@ -74,7 +74,7 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 .\.venv\Scripts\python.exe run_pipeline.py
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
-.\.venv\Scripts\python.exe -m streamlit run dashboard/app.py
+.\.venv\Scripts\python.exe -m streamlit run "../DEPLOYMENT_KECERDASAN BISNIS/app.py"
 ```
 
 Pipeline menghasilkan ulang artefak analitik dan skor; sumber pada ../dataset tidak ditimpa. Konfigurasi sumber dan parser berada pada configs/audit.json, sedangkan konfigurasi eksperimen berada pada configs/experiments.json. Notebook EDA merupakan pendamping analisis, bukan satu-satunya jalur reproduksi.

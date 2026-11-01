@@ -5,7 +5,7 @@ from streamlit.testing.v1 import AppTest
 
 
 ROOT = Path(__file__).resolve().parents[1]
-APP = ROOT / "dashboard/app.py"
+APP = ROOT.parent / "DEPLOYMENT_KECERDASAN BISNIS/app.py"
 
 
 @unittest.skipUnless(

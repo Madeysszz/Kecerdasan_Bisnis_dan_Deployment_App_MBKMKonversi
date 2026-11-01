@@ -1,0 +1,18 @@
+**
+!DEPLOYMENT_KECERDASAN BISNIS/
+DEPLOYMENT_KECERDASAN BISNIS/**
+!DEPLOYMENT_KECERDASAN BISNIS/app.py
+!DEPLOYMENT_KECERDASAN BISNIS/requirements.txt
+!kecerdasan-bisnis/
+kecerdasan-bisnis/**
+!kecerdasan-bisnis/outputs/
+kecerdasan-bisnis/outputs/**
+!kecerdasan-bisnis/outputs/tables/
+kecerdasan-bisnis/outputs/tables/**
+!kecerdasan-bisnis/outputs/tables/model_agreement.csv
+!kecerdasan-bisnis/outputs/tables/model_stability.csv
+!kecerdasan-bisnis/outputs/tables/threshold_sensitivity.csv
+!kecerdasan-bisnis/outputs/tables/experiment_parameters.csv
+!kecerdasan-bisnis/outputs/reports/
+kecerdasan-bisnis/outputs/reports/**
+!kecerdasan-bisnis/outputs/reports/model_evaluation.json

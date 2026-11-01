@@ -513,7 +513,7 @@ python -m venv .venv
 ./.venv/Scripts/python.exe run_pipeline.py
 ./.venv/Scripts/python.exe build_knowledge_evidence.py
 ./.venv/Scripts/python.exe -m unittest discover -s tests -v
-./.venv/Scripts/python.exe -m streamlit run dashboard/app.py --server.address 127.0.0.1 --server.port 8501 --server.headless true --browser.gatherUsageStats false
+./.venv/Scripts/python.exe -m streamlit run "../DEPLOYMENT_KECERDASAN BISNIS/app.py" --server.address 127.0.0.1 --server.port 8501 --server.headless true --browser.gatherUsageStats false
 ```
 
 Konfigurasi audit menentukan sumber dan parser, sedangkan konfigurasi eksperimen menentukan grid serta aturan evaluasi. Rerun mengganti keluaran analitik/model dan membangun ulang mart; sumber mentah tidak ditimpa.
