@@ -135,7 +135,23 @@ Versi actionlint diambil dari rilis resminya dan checksum arsip diperiksa sebelu
 
 ### Verifikasi GitHub Actions
 
-Pada commit persiapan, workflow belum dijalankan di GitHub karena perubahan belum di-push. Akses repository private dan status GitHub Actions enabled sudah diverifikasi. Hasil run untuk commit implementasi diperiksa setelah push dan dicatat pada bagian ini sebelum penyerahan akhir.
+Workflow sudah berjalan di GitHub dan selesai dengan kesimpulan **success**. Bukti diperiksa melalui metadata run, status setiap langkah job, log pengujian, dan daftar artifact. Repository tetap private.
+
+| Informasi | Hasil terverifikasi |
+| --- | --- |
+| Workflow | Norton Deployment CI |
+| Event / branch | Push ke `main` |
+| Commit implementasi yang diuji | [`432d9ab0f70ad2183b56efa91b1c7544165606d0`](https://github.com/Madeysszz/Kecerdasan_Bisnis_dan_Deployment_App_MBKMKonversi/commit/432d9ab0f70ad2183b56efa91b1c7544165606d0) |
+| Run | [Run #1 — 41648175293](https://github.com/Madeysszz/Kecerdasan_Bisnis_dan_Deployment_App_MBKMKonversi/actions/runs/41648175293) |
+| Status akhir | Completed / success |
+| Environment | GitHub-hosted Ubuntu, Python 3.12 |
+| Pytest / Streamlit AppTest pada runner | 12 passed dalam 4,59 detik; tidak ada tes gagal atau skipped. |
+| Smoke test pada runner | Passed; health HTTP 200, halaman utama HTTP 200, data privat tidak digunakan, server dihentikan. |
+| Job Summary | Langkah penulisan ringkasan berhasil. |
+| Artifact | `deployment-ci-reports`, ID `13236570960`; unggahan berhasil. |
+| Selesai pada | 3 November 2026; log tes dan unggahan artifact tercatat sekitar 13:52 UTC / 20:52 WIB. |
+
+Checkout, setup Python, instalasi, validasi syntax, pytest/AppTest, smoke test, ringkasan, dan unggahan artifact semuanya selesai sukses. Dokumentasi hasil ini dicatat melalui commit lanjutan setelah run implementasi selesai; tautan di atas secara khusus merujuk commit implementasi yang benar-benar diuji. Keberhasilan run tersebut adalah bukti CI, bukan deployment Docker atau hosting aplikasi.
 
 ## 7. Rencana deployment Docker
 
