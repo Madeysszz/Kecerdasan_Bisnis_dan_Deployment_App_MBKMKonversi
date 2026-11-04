@@ -147,21 +147,38 @@ Jika repository atau branch belum menampilkan file baru, pastikan commit cloud-d
 
 ## 6. Hasil pengujian yang terverifikasi
 
-Catatan tahap dokumentasi ini memisahkan hasil nyata dan pemeriksaan yang belum selesai. Hasil CI sebelumnya berlaku untuk commit sebelumnya dan belum menjadi bukti cloud-demo saat ini.
+Pengujian cloud-demo sudah berhasil pada GitHub Actions Linux untuk commit implementasi yang tercantum di bawah. Hasil lingkungan Windows, WSL lokal, CI, dan hosting dicatat terpisah agar status setiap tahap dapat diperiksa.
 
 | Pemeriksaan | Status pada saat dokumentasi disusun |
 | --- | --- |
 | Validasi syntax source baru | Lulus berdasarkan eksekusi lokal. |
 | Validasi workflow dengan actionlint | Lulus berdasarkan eksekusi lokal. |
 | Pytest pada environment Windows baru | Terhenti pada pemuatan DLL dependensi sebelum collection; belum menghasilkan hasil 28 tes. |
-| Pengujian Python 3.12.3 melalui Ubuntu WSL | Environment dan dependensi sedang disiapkan; hasil belum terverifikasi. |
-| Pytest/AppTest cloud-demo dan aplikasi lama | Target 28 kasus; hasil eksekusi terkini belum tersedia. |
-| Smoke test cloud-demo untuk perubahan ini | Hasil terkini belum terverifikasi. |
-| GitHub Actions pada commit cloud-demo baru | Belum terverifikasi. |
+| Pengujian Python 3.12.3 melalui Ubuntu WSL | 28 passed dalam 15,35 detik; 0 gagal dan 0 skipped. |
+| Dependensi WSL | NumPy 2.5.4, pandas 3.1.0, Streamlit 1.66.1, Plotly 7.1.0, pytest 9.2.0; `pip check` tanpa dependency rusak. |
+| Pytest/AppTest cloud-demo dan aplikasi lama | GitHub Actions: 28 passed dalam 12,46 detik; tidak ada tes gagal atau skipped. |
+| Smoke test cloud-demo untuk perubahan ini | GitHub Actions: passed; health HTTP 200, halaman utama HTTP 200, data sintetis, dan server dihentikan. |
+| Smoke test aplikasi deployment lokal | GitHub Actions: passed; health HTTP 200, halaman utama HTTP 200, tanpa data privat, dan server dihentikan. |
+| Dua smoke test pada WSL lokal | Keduanya passed; health HTTP 200, halaman utama HTTP 200, tanpa data privat, dan server dihentikan. |
+| GitHub Actions pada commit cloud-demo baru | Completed / success pada run #3. |
 | CI commit sebelumnya | Sukses pada riwayat pekerjaan sebelumnya; tidak dipakai sebagai hasil commit cloud-demo baru. |
 | Pelatihan model | Tidak dilakukan. |
 
-Hambatan DLL pada Windows dicatat sebagai kegagalan lingkungan eksekusi, tanpa menganggap tes lulus atau menonaktifkan pemeriksaan. Hasil WSL dan CI perlu diperbarui menggunakan log dan commit yang benar-benar diuji setelah proses selesai.
+Hambatan DLL pada Windows dicatat sebagai kegagalan lingkungan eksekusi, tanpa menganggap tes Windows lulus atau menonaktifkan pemeriksaan. Seluruh tes yang sama dijalankan dengan dependensi yang dipasang dari kedua requirements pada runner Ubuntu. Pengaturan keamanan Windows dan environment aplikasi lama tidak diubah.
+
+Verifikasi lokal diselesaikan pada Ubuntu WSL menggunakan environment sementara yang terpisah, kemudian diulang oleh CI pada runner GitHub. Pytest lokal melaporkan satu warning izin cache pada filesystem NTFS; warning tersebut tidak menggagalkan assertion atau menonaktifkan tes. Bukti lokal tersedia pada `deployment-aplikasi/test-results/cloud-pytest.xml`, `smoke.json`, `cloud-smoke.json`, dan `linux-verification.json`. Laporan sementara diabaikan Git; bukti pengujian runner tersedia melalui artifact CI. Pemeriksaan fingerprint juga memastikan 114 file sumber/artefak yang dilindungi tetap sama dari baseline sebelum pekerjaan ini.
+
+| Bukti GitHub Actions | Hasil terverifikasi |
+| --- | --- |
+| Commit implementasi | [`1535546916ec0affc80601fed0d5b04af79fdcfd`](https://github.com/Madeysszz/Kecerdasan_Bisnis_dan_Deployment_App_MBKMKonversi/commit/1535546916ec0affc80601fed0d5b04af79fdcfd) |
+| Run | [Run #3 — 41839536311](https://github.com/Madeysszz/Kecerdasan_Bisnis_dan_Deployment_App_MBKMKonversi/actions/runs/41839536311) |
+| Event / branch | Push / `main` |
+| Hasil pytest | 28 passed dalam 12,46 detik. |
+| Status langkah | Instalasi, syntax, pytest/AppTest, dua smoke test, summary, dan upload artifact semuanya sukses. |
+| Artifact | `deployment-ci-reports`, ID `13328625583`, berhasil diunggah. |
+| Waktu bukti log | 4 November 2026, sekitar 13:36 UTC / 20:36 WIB. |
+
+Metadata job, potongan log hasil pengujian, serta keberadaan artifact telah diperiksa. Rekaman ini merujuk commit implementasi; catatan hasil pengujian ditambahkan pada commit dokumentasi sesudah run tersebut selesai. Status ini membuktikan keberhasilan CI dan tidak menyatakan hosting Community Cloud sudah berhasil.
 
 ## 7. Status deployment yang terverifikasi
 
